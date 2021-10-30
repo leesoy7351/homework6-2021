@@ -29,13 +29,14 @@ a:visited {
 .card {
     display:flex;
     flex-direction: column;
-    width: 450px;
+    flex-basis: 450px;
 }
 
 .pricing {
     display:flex;
     flex-direction: column;
-    justify-items: center;
+    flex-wrap:wrap;
+    justify-content: center;
     align-items: center;
 }
 
@@ -78,7 +79,6 @@ a:visited {
         top: 0;
         width: 100%;
     }
-  }
 
     .nav_links{
       display:flex;
@@ -88,8 +88,11 @@ a:visited {
   .pricing {
     display:flex;
     flex-direction: row;
+    justify-items: center;
+    flex-wrap: nowrap;
     flex-basis: 250px;
 }
+  }
 
 @media screen and (prefers-reduced-motion: reduce){
     #logo {
@@ -97,7 +100,6 @@ a:visited {
     }
 
 }
-
 
 @media print {
     body {
@@ -115,22 +117,34 @@ a:visited {
       flex-direction: row;
   }
 
-  .pricing {
-    display:flex;
-    flex-direction: row;
-    justify-items: center;
-    align-items: flex-end;
+    .pricing{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-items: center;
+        align-items: flex-end;
 }
 
-.card{
-    border: 2px solid #45ADDD;
+    .card{
+        border: 2px solid #45ADDD;
+    }
+
+    .gallery{
+        display: none;
 }
 
-.gallery{
-    display: none;
+    #gallery{
+        display: none;
+    }
+
+    .card li:nth-child(odd)::before{
+        content: "\1F44D";
+
 }
 
-#gallery{
-    display: none;
+.card li:nth-child(even)::after{
+    content: "\1F44D";
+
 }
-  }
+
+}
